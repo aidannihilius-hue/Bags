@@ -1,0 +1,76 @@
+REPORTE DE AVANCES - LUNA BELLE BAGS
+Fecha: 2026-05-30
+
+OBJETIVO
+Preparar el catalogo existente para desplegarlo en Railway mediante Flask,
+dirigir las preguntas al WhatsApp solicitado y revisar referencias de imagenes.
+
+ESTADO INICIAL ENCONTRADO
+- El proyecto era un sitio estatico formado por index.html, style.css,
+  script.js y 14 fotografias JPEG.
+- No existia servidor Flask, archivo de dependencias ni configuracion para
+  iniciar la aplicacion en Railway.
+- El numero configurado para WhatsApp era provisional: 5210000000000.
+- El catalogo hacia referencia a tres fotografias inexistentes:
+  - WhatsApp Image 2026-05-03 at 11.54.40 AM.jpeg
+  - WhatsApp Image 2026-05-03 at 11.50.23 AM.jpeg
+  - WhatsApp Image 2026-05-03 at 12.04.33 PM.jpeg
+
+CAMBIOS REALIZADOS
+1. Se creo app.py como punto de entrada Flask.
+2. Se agrego la ruta principal / para servir el catalogo.
+3. Se agrego la ruta /health para que Railway pueda validar el servicio.
+4. Se organizo el proyecto con la estructura estandar de Flask:
+   - templates/index.html
+   - static/css/style.css
+   - static/js/script.js
+   - static/images/
+5. Se agrego requirements.txt con Flask y gunicorn.
+6. Se agregaron Procfile y railway.json para iniciar gunicorn app:app.
+7. Se agrego .gitignore para excluir entornos virtuales, cache y .env.
+8. Se actualizaron las rutas del HTML para usar url_for de Flask.
+9. Se actualizaron las rutas de imagenes generadas desde JavaScript.
+10. Se retiro del catalogo la informacion de las tres tarjetas con fotografias
+    inexistentes para evitar imagenes rotas en produccion.
+11. Se configuro el WhatsApp solicitado con formato internacional:
+    524612101815. Los botones generales y los botones de cada bolsa usan este
+    numero mediante enlaces wa.me.
+12. Se agregaron encabezados HTTP basicos de seguridad:
+    Content-Security-Policy, Referrer-Policy, X-Content-Type-Options,
+    X-Frame-Options y Permissions-Policy.
+13. Se agrego README.md con instrucciones para ejecutar localmente y desplegar
+    en Railway.
+
+VALIDACIONES REALIZADAS
+- app.py fue compilado correctamente con python -m compileall -q app.py.
+- Se comprobo que el telefono provisional ya no permanece en el codigo.
+- Se comprobaron y retiraron las referencias conocidas a imagenes inexistentes.
+- Se validaron los siete productos publicados: ninguna imagen referenciada falta.
+- Se valido railway.json: inicia gunicorn app:app y consulta /health.
+- La prueba HTTP local no se pudo completar porque Flask no esta instalado en
+  el entorno Python actual. Railway instalara las dependencias declaradas en
+  requirements.txt durante el despliegue.
+
+ESTRUCTURA FINAL
+- app.py
+- requirements.txt
+- Procfile
+- railway.json
+- .gitignore
+- README.md
+- Reporte.txt
+- Sugerencias.txt
+- templates/index.html
+- static/css/style.css
+- static/js/script.js
+- static/images/*.jpeg
+
+EJECUCION LOCAL REALIZADA
+Fecha: 2026-05-30
+- Se creo el entorno virtual local .venv.
+- Se instalaron Flask, gunicorn y sus dependencias desde requirements.txt.
+- Se inicio Flask en segundo plano en http://127.0.0.1:5000.
+- Se valido la pagina principal: respuesta HTTP 200.
+- Se valido /health: respuesta status ok.
+- Se validaron style.css, script.js y la imagen destacada: respuesta HTTP 200.
+- Se comprobo nuevamente que script.js contiene el WhatsApp 524612101815.

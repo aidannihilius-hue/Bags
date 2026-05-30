@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luna Belle Bags | Bolsas originales</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="#inicio" aria-label="Luna Belle Bags">
+        <span class="brand-mark">LB</span>
+        <span>
+          <strong>Luna Belle</strong>
+          <small>Bags</small>
+        </span>
+      </a>
+
+      <div class="nav-links" aria-label="Navegacion principal">
+        <a href="#catalogo">Catalogo</a>
+        <a href="#ofertas">Analisis</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-copy">
+        <p class="eyebrow">Bolsas nuevas originales desde Estados Unidos</p>
+        <h1>Luna Belle Bags</h1>
+        <p class="hero-text">
+          Coleccion seleccionada de Guess, Tommy Hilfiger y Juicy Couture. Todas listas para venderse a
+          <strong>$1600 MXN</strong>.
+        </p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#catalogo">Ver catalogo</a>
+          <a class="btn ghost" href="#ofertas">Mejores ofertas</a>
+        </div>
+      </div>
+
+      <div class="hero-photo" aria-label="Bolsa destacada">
+        <img src="{{ url_for('static', filename='images/WhatsApp Image 2026-05-03 at 12.09.48 PM.jpeg') }}" alt="Bolsa Guess blanca con cadena">
+      </div>
+    </section>
+
+    <section class="section intro-band">
+      <div>
+        <span class="section-kicker">Precio unico</span>
+        <h2>$1600 MXN por bolsa</h2>
+      </div>
+      <p>
+        Clasifique cada modelo segun su potencial de venta: muy buena oferta, buena oferta o precio justo.
+      </p>
+    </section>
+
+    <section class="section" id="ofertas">
+      <div class="section-head">
+        <div>
+          <span class="section-kicker">Analisis rapido</span>
+          <h2>Cuales convienen mas a $1600</h2>
+        </div>
+      </div>
+
+      <div class="deal-grid">
+        <article class="deal-panel strongest">
+          <h3>Mas fuertes</h3>
+          <p>Se ven como las mejores oportunidades para anunciar primero.</p>
+          <ul id="topDeals"></ul>
+        </article>
+        <article class="deal-panel fair">
+          <h3>Precio justo</h3>
+          <p>Bonitas y vendibles, pero no se sienten como ofertazazo.</p>
+          <ul id="fairDeals"></ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section catalog-section" id="catalogo">
+      <div class="section-head">
+        <div>
+          <span class="section-kicker">Catalogo</span>
+          <h2>Bolsas disponibles</h2>
+        </div>
+
+        <div class="filters" aria-label="Filtros de catalogo">
+          <button class="filter active" data-filter="all" type="button">Todas</button>
+          <button class="filter" data-filter="muy-buena" type="button">Muy buena</button>
+          <button class="filter" data-filter="buena" type="button">Buena</button>
+          <button class="filter" data-filter="justa" type="button">Justa</button>
+        </div>
+      </div>
+
+      <div class="product-grid" id="productGrid"></div>
+    </section>
+
+    <section class="contact" id="contacto">
+      <div>
+        <span class="section-kicker">Venta directa</span>
+        <h2>Publicalas con fotos claras y precio firme</h2>
+        <p>
+          Tip de venta: en la descripcion usa "nueva con etiqueta", marca, color, medidas aproximadas y entrega disponible.
+        </p>
+      </div>
+      <a class="btn primary" id="whatsAppMain" href="#" target="_blank" rel="noopener">Enviar por WhatsApp</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Luna Belle Bags - Bolsas originales traidas desde Estados Unidos.</p>
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

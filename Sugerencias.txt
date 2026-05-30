@@ -1,0 +1,34 @@
+SUGERENCIAS DE SEGURIDAD Y MEJORAS - LUNA BELLE BAGS
+Fecha: 2026-05-30
+
+SEGURIDAD APLICADA
+- Se agregaron encabezados HTTP para limitar la carga de recursos, evitar que
+  el sitio sea incrustado en otros sitios y deshabilitar permisos innecesarios.
+- Se agrego un healthcheck separado para supervisar el servicio.
+- Se agrego .gitignore para reducir el riesgo de publicar archivos .env.
+
+SEGURIDAD RECOMENDADA
+1. Usar siempre el dominio HTTPS entregado por Railway o configurar un dominio
+   propio con HTTPS activo.
+2. No guardar contrasenas, tokens ni llaves dentro del codigo. Si se agregan
+   integraciones, configurarlas como variables de entorno en Railway.
+3. Considerar que el numero de WhatsApp queda visible publicamente y puede ser
+   recopilado por bots. Si aumenta el spam, usar un numero comercial separado.
+4. Mantener Flask y gunicorn actualizados y revisar periodicamente alertas de
+   dependencias.
+5. Si en el futuro se agrega un panel administrativo, protegerlo con
+   autenticacion, autorizacion, validacion de entradas y proteccion CSRF.
+
+MEJORAS RECOMENDADAS
+1. Revisar las siete fotografias de abril que permanecen en static/images pero
+   no se muestran en el catalogo. Se conservaron para evitar borrar material
+   util sin confirmacion.
+2. Renombrar las imagenes con nombres cortos y descriptivos, por ejemplo
+   guess-satchel-blanca.jpeg. Esto facilita mantenimiento y evita errores.
+3. Convertir fotografias a WebP y generar versiones optimizadas para movil.
+   Reducira el tiempo de carga y el consumo de datos.
+4. Confirmar si las tres bolsas retiradas por referencias rotas deben eliminarse
+   definitivamente o reincorporarse con fotografias nuevas.
+5. Agregar un estado de inventario para ocultar o marcar bolsas vendidas.
+6. Anadir una descripcion comercial final, condiciones de entrega y politica
+   de privacidad si se recopilan datos de clientes en el futuro.

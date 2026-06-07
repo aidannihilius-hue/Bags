@@ -6,63 +6,61 @@ const products = [
     name: "Tommy Hilfiger tote grande beige",
     brand: "Tommy Hilfiger",
     image: "WhatsApp Image 2026-05-03 at 12.03.04 PM.jpeg",
-    category: "muy-buena",
-    label: "Muy buena oferta",
-    analysis: "Tote grande, monograma visible y etiqueta. Es de las mas fuertes para vender primero a $1600."
+    category: "tommy-hilfiger",
+    label: "Nueva original",
+    description: "Tote grande beige con monograma visible, etiqueta y espacio amplio para uso diario."
   },
   {
     name: "Guess satchel blanca con cadena",
     brand: "Guess",
     image: "WhatsApp Image 2026-05-03 at 12.09.48 PM.jpeg",
-    category: "buena",
-    label: "Buena oferta",
-    analysis: "Modelo vistoso y femenino. La cadena con letras ayuda a que se vea mas premium en foto."
+    category: "guess",
+    label: "Nueva original",
+    description: "Satchel blanca con cadena decorativa y detalles Guess que lucen elegantes en cualquier outfit."
   },
   {
     name: "Tommy Hilfiger roja",
     brand: "Tommy Hilfiger",
     image: "WhatsApp Image 2026-05-03 at 12.07.32 PM.jpeg",
-    category: "justa",
-    label: "Precio justo",
-    analysis: "Elegante y vendible. A $1600 esta bien, aunque no destaca tanto como las totes grandes."
+    category: "tommy-hilfiger",
+    label: "Nueva original",
+    description: "Bolsa roja Tommy Hilfiger con estilo clasico, ideal para darle color al look."
   },
   {
     name: "Guess satchel rosa",
     brand: "Guess",
     image: "WhatsApp Image 2026-05-03 at 12.12.47 PM.jpeg",
-    category: "justa",
-    label: "Precio justo",
-    analysis: "Linda y femenina. Se mueve bien entre $1500 y $1700, asi que $1600 esta correcto."
+    category: "guess",
+    label: "Nueva original",
+    description: "Satchel rosa Guess con acabado femenino, practica para salidas y combinaciones claras."
   },
   {
     name: "Guess satchel cafe y negra",
     brand: "Guess",
     image: "WhatsApp Image 2026-05-03 at 11.44.26 AM.jpeg",
-    category: "justa",
-    label: "Precio justo",
-    analysis: "Modelo practico y combinable, aunque el diseno se siente mas comun."
+    category: "guess",
+    label: "Nueva original",
+    description: "Satchel cafe y negra, facil de combinar con ropa casual o de oficina."
   },
   {
     name: "Juicy Couture bolsa beige",
     brand: "Juicy Couture",
     image: "WhatsApp Image 2026-05-03 at 11.47.57 AM.jpeg",
-    category: "justa",
-    label: "Precio justo",
-    analysis: "Muy femenina y con etiqueta, pero a $1600 depende mas del gusto de la clienta."
+    category: "juicy-couture",
+    label: "Nueva original",
+    description: "Bolsa beige Juicy Couture con etiqueta, suave y femenina para uso diario."
   },
   {
     name: "Juicy Couture backpack crema",
     brand: "Juicy Couture",
     image: "WhatsApp Image 2026-05-03 at 11.59.38 AM.jpeg",
-    category: "justa",
-    label: "Precio justo",
-    analysis: "Estilo llamativo y juvenil. Vendible, pero no la pondria como la mejor oferta del grupo."
+    category: "juicy-couture",
+    label: "Nueva original",
+    description: "Backpack color crema Juicy Couture, juvenil y comoda para llevar lo esencial."
   }
 ];
 
 const productGrid = document.querySelector("#productGrid");
-const topDeals = document.querySelector("#topDeals");
-const fairDeals = document.querySelector("#fairDeals");
 const filterButtons = document.querySelectorAll(".filter");
 const whatsAppMain = document.querySelector("#whatsAppMain");
 
@@ -87,7 +85,7 @@ function renderProducts(filter = "all") {
           <span class="price">${price}</span>
         </div>
         <span class="badge ${product.category}">${product.label}</span>
-        <p>${product.analysis}</p>
+        <p>${product.description}</p>
         <div class="product-actions">
           <a class="btn ghost" href="${makeWhatsAppLink(product.name)}" target="_blank" rel="noopener">
             Preguntar por esta bolsa
@@ -96,14 +94,6 @@ function renderProducts(filter = "all") {
       </div>
     </article>
   `).join("");
-}
-
-function renderDealLists() {
-  const strong = products.filter((product) => product.category === "muy-buena" || product.category === "buena");
-  const fair = products.filter((product) => product.category === "justa");
-
-  topDeals.innerHTML = strong.map((product) => `<li>${product.name}</li>`).join("");
-  fairDeals.innerHTML = fair.map((product) => `<li>${product.name}</li>`).join("");
 }
 
 filterButtons.forEach((button) => {
@@ -115,5 +105,4 @@ filterButtons.forEach((button) => {
 });
 
 whatsAppMain.href = makeWhatsAppLink();
-renderDealLists();
 renderProducts();

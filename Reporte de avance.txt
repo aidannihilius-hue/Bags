@@ -1,0 +1,83 @@
+REPORTE DE AVANCE - LUNA BELLE BAGS
+Fecha: 2026-06-07
+Dirigido a: Project Manager
+
+RESUMEN EJECUTIVO
+El proyecto Luna Belle Bags continua funcionando como catalogo web servido con
+Flask. En esta iteracion se realizaron ajustes de contenido, experiencia de
+usuario y configuracion local para asegurar que los cambios recientes se vean
+reflejados correctamente al ejecutar la pagina.
+
+AVANCES REALIZADOS
+1. Se actualizo la navegacion principal:
+   - Se retiro el enlace a la seccion "Analisis".
+   - Se conservaron accesos directos a "Catalogo" y "Contacto".
+
+2. Se simplifico el flujo comercial:
+   - El boton secundario del hero cambio de "Mejores ofertas" a
+     "Comprar por WhatsApp".
+   - El mensaje principal ahora dirige al usuario a elegir una bolsa y preguntar
+     por disponibilidad.
+
+3. Se retiro la seccion de analisis/ofertas:
+   - Se elimino la seccion "Analisis rapido".
+   - Se eliminaron las listas de mejores oportunidades y precio justo.
+   - Se redujo el enfoque del sitio a un catalogo directo por marca.
+
+4. Se reorganizaron los filtros del catalogo:
+   - Antes filtraban por evaluacion comercial:
+     "Muy buena", "Buena" y "Justa".
+   - Ahora filtran por marca:
+     "Guess", "Tommy Hilfiger" y "Juicy Couture".
+
+5. Se actualizaron las tarjetas de producto:
+   - Se reemplazo el texto de analisis por descripciones comerciales.
+   - Todas las bolsas mantienen el estado "Nueva original".
+   - Se conserva el precio unico de $1600 MXN.
+   - Se mantienen los enlaces individuales para preguntar por WhatsApp.
+
+6. Se ajustaron estilos CSS:
+   - Se eliminaron estilos relacionados con la seccion de analisis.
+   - Se actualizaron los colores de badges por marca.
+   - Se limpiaron reglas responsive que ya no aplicaban.
+
+7. Se mejoro el comportamiento durante desarrollo:
+   - Se activo recarga automatica de templates en Flask.
+   - Se desactivo cache por defecto para archivos estaticos.
+   - Se agregaron parametros de version a CSS y JS para evitar que el navegador
+     muestre versiones anteriores.
+
+VALIDACIONES REALIZADAS
+- Se confirmo que Flask responde correctamente en http://127.0.0.1:5000.
+- Se valido el endpoint /health con respuesta {"status":"ok"}.
+- Se verifico que el HTML servido ya corresponde al archivo index.html actual.
+- Se identifico y corrigio un problema de multiples procesos Flask sirviendo
+  versiones anteriores en el puerto 5000.
+- Se dejo un unico servidor activo desde la carpeta correcta del proyecto.
+
+ARCHIVOS MODIFICADOS
+- app.py
+- templates/index.html
+- static/css/style.css
+- static/js/script.js
+
+ESTADO ACTUAL
+La pagina se encuentra levantada localmente y sirve la version actual del
+catalogo. El sitio ya refleja la estructura simplificada: navegacion directa,
+catalogo por marca, descripciones comerciales y contacto por WhatsApp.
+
+RIESGOS O PENDIENTES
+1. Confirmar con negocio si el filtro por marca es la organizacion definitiva
+   del catalogo.
+2. Revisar textos comerciales finales antes de publicar.
+3. Confirmar disponibilidad real de cada bolsa para evitar consultas sobre
+   productos vendidos.
+4. Considerar agregar control de inventario en una siguiente fase.
+5. Renombrar imagenes con nombres cortos y descriptivos para facilitar
+   mantenimiento.
+
+PROXIMOS PASOS RECOMENDADOS
+1. Hacer una revision visual completa en navegador de escritorio y movil.
+2. Confirmar que todos los botones de WhatsApp abran el mensaje correcto.
+3. Subir los cambios al repositorio cuando el contenido sea aprobado.
+4. Desplegar nuevamente en Railway y validar /health en produccion.

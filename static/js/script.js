@@ -13,7 +13,7 @@ const products = [
   {
     name: "Guess satchel blanca con cadena",
     brand: "Guess",
-    image: "WhatsApp Image 2026-05-03 at 12.09.48 PM.jpeg",
+    image: "bolsa-guess-blanca.png",
     category: "guess",
     label: "Nueva original",
     description: "Satchel blanca con cadena decorativa y detalles Guess que lucen elegantes en cualquier outfit."

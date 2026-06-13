@@ -24,11 +24,13 @@ html {
 body {
   margin: 0;
   font-family: "Inter", Arial, sans-serif;
+  line-height: 1.5;
   color: var(--ink);
   background:
     linear-gradient(180deg, rgba(255, 250, 246, 0.82), rgba(246, 241, 236, 0.96)),
     var(--bg);
   animation: pageFade 0.7s ease both;
+  text-rendering: optimizeLegibility;
 }
 
 img {
@@ -39,6 +41,12 @@ img {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid rgba(122, 31, 54, 0.34);
+  outline-offset: 3px;
 }
 
 h1,
@@ -55,6 +63,7 @@ p {
   border-bottom: 1px solid var(--line);
   background: rgba(246, 241, 236, 0.88);
   backdrop-filter: blur(18px);
+  box-shadow: 0 8px 24px rgba(65, 38, 31, 0.04);
 }
 
 .nav {
@@ -130,17 +139,19 @@ p {
 
 .hero {
   width: min(1200px, calc(100% - 36px));
-  min-height: calc(100vh - 76px);
+  min-height: min(740px, calc(100vh - 76px));
   margin: 0 auto;
-  padding: 42px 0 54px;
+  padding: 52px 0 62px;
   display: grid;
-  grid-template-columns: minmax(0, 0.92fr) minmax(360px, 1.08fr);
+  grid-template-columns: minmax(0, 0.84fr) minmax(420px, 1.16fr);
   align-items: center;
-  gap: 44px;
+  gap: clamp(48px, 6vw, 76px);
 }
 
 .hero-copy {
-  max-width: 560px;
+  position: relative;
+  z-index: 2;
+  max-width: 530px;
 }
 
 .eyebrow,
@@ -167,8 +178,8 @@ p {
 h1 {
   margin-bottom: 20px;
   font-family: "Playfair Display", Georgia, serif;
-  font-size: clamp(62px, 8vw, 116px);
-  line-height: 0.9;
+  font-size: clamp(58px, 6.7vw, 98px);
+  line-height: 0.92;
   letter-spacing: 0;
 }
 
@@ -190,8 +201,8 @@ h3 {
   max-width: 520px;
   margin-bottom: 0;
   color: var(--muted);
-  font-size: 18px;
-  line-height: 1.72;
+  font-size: 17px;
+  line-height: 1.68;
 }
 
 .hero-text strong,
@@ -220,6 +231,7 @@ h3 {
   font-weight: 900;
   letter-spacing: 0.02em;
   cursor: pointer;
+  text-align: center;
   transition: transform 0.22s ease, border-color 0.22s ease, background 0.22s ease, color 0.22s ease, box-shadow 0.22s ease;
 }
 
@@ -252,45 +264,47 @@ h3 {
 
 .hero-photo {
   position: relative;
-  min-height: 590px;
+  min-height: 560px;
   display: grid;
   place-items: center;
   overflow: hidden;
-  border: 1px solid rgba(199, 178, 153, 0.52);
+  isolation: isolate;
+  padding: clamp(58px, 7vw, 88px);
+  border: 1px solid rgba(199, 178, 153, 0.36);
   border-radius: 8px;
   background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.74), rgba(232, 220, 207, 0.9)),
+    radial-gradient(circle at 50% 48%, rgba(255, 255, 255, 0.94) 0, rgba(255, 255, 255, 0.56) 34%, rgba(232, 220, 207, 0.72) 68%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.72), rgba(232, 220, 207, 0.84)),
     #efe3d7;
-  box-shadow: var(--shadow-lift);
+  box-shadow: 0 28px 70px rgba(65, 38, 31, 0.14);
 }
 
 .hero-photo::before {
   content: "";
   position: absolute;
-  inset: 26px;
-  border: 1px solid rgba(122, 31, 54, 0.1);
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255, 250, 246, 0.1), rgba(122, 31, 54, 0.04));
   pointer-events: none;
+  z-index: 0;
 }
 
 .hero-photo::after {
-  content: "Premium Edit";
+  content: "";
   position: absolute;
-  right: 26px;
-  bottom: 24px;
-  color: rgba(122, 31, 54, 0.48);
-  font-family: "Playfair Display", Georgia, serif;
-  font-size: 24px;
-  font-weight: 800;
+  inset: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  pointer-events: none;
+  z-index: 0;
 }
 
 .hero-photo img {
   position: relative;
   z-index: 1;
-  width: min(82%, 500px);
+  width: min(72%, 430px);
   height: auto;
-  max-height: 520px;
+  max-height: 450px;
   object-fit: contain;
-  filter: drop-shadow(0 28px 34px rgba(40, 25, 20, 0.24));
+  filter: drop-shadow(0 30px 34px rgba(40, 25, 20, 0.22));
 }
 
 .trust-bar,
@@ -313,7 +327,7 @@ h3 {
 }
 
 .trust-item {
-  min-height: 116px;
+  min-height: 112px;
   display: flex;
   align-items: center;
   gap: 14px;
@@ -337,6 +351,7 @@ h3 {
   display: block;
   margin-bottom: 5px;
   font-size: 14px;
+  line-height: 1.25;
 }
 
 .trust-item p {
@@ -347,7 +362,7 @@ h3 {
 }
 
 .section {
-  padding: 82px 0;
+  padding: 78px 0;
 }
 
 .section-head {
@@ -394,7 +409,7 @@ h3 {
 }
 
 .brand-card {
-  min-height: 150px;
+  min-height: 144px;
   display: grid;
   place-items: center;
   position: relative;
@@ -418,7 +433,7 @@ h3 {
 }
 
 .why-card {
-  padding: 28px;
+  padding: 28px 26px;
   transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
@@ -432,7 +447,7 @@ h3 {
 .why-card h3 {
   font-family: "Playfair Display", Georgia, serif;
   color: var(--wine);
-  font-size: 28px;
+  font-size: 26px;
 }
 
 .why-card p,
@@ -443,7 +458,7 @@ h3 {
 }
 
 .catalog-section {
-  padding-top: 74px;
+  padding-top: 70px;
 }
 
 .filters {
@@ -459,6 +474,7 @@ h3 {
   background: rgba(255, 255, 255, 0.62);
   color: var(--muted);
   padding: 0 16px;
+  white-space: nowrap;
 }
 
 .filter.active {
@@ -478,6 +494,7 @@ h3 {
   flex-direction: column;
   overflow: hidden;
   background: var(--surface-strong);
+  min-width: 0;
   transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
@@ -502,7 +519,7 @@ h3 {
   display: flex;
   flex: 1;
   flex-direction: column;
-  padding: 20px;
+  padding: 22px;
 }
 
 .product-top {
@@ -517,6 +534,7 @@ h3 {
   margin: 0;
   font-size: 18px;
   line-height: 1.28;
+  overflow-wrap: anywhere;
 }
 
 .price {
@@ -553,6 +571,7 @@ h3 {
 .product-card p {
   margin-bottom: 20px;
   font-size: 14px;
+  min-height: 68px;
 }
 
 .product-actions {
@@ -579,7 +598,7 @@ h3 {
   gap: 28px;
   border: 1px solid rgba(199, 178, 153, 0.34);
   border-radius: 8px;
-  padding: 36px;
+  padding: 38px;
   background:
     linear-gradient(135deg, rgba(122, 31, 54, 0.98), rgba(68, 19, 31, 0.98)),
     var(--wine);
@@ -589,6 +608,7 @@ h3 {
 
 .contact h2 {
   margin-bottom: 10px;
+  max-width: 760px;
 }
 
 .contact p,
@@ -631,13 +651,18 @@ h3 {
   .hero {
     grid-template-columns: 1fr;
     min-height: auto;
-    gap: 30px;
-    padding-top: 30px;
+    gap: 34px;
+    padding-top: 34px;
   }
 
   .hero-photo {
     order: -1;
-    min-height: 520px;
+    min-height: 480px;
+    padding: clamp(48px, 9vw, 72px);
+  }
+
+  h1 {
+    max-width: 760px;
   }
 
   .trust-bar {
@@ -646,6 +671,15 @@ h3 {
 
   .product-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .section-head {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .filters {
+    justify-content: flex-start;
   }
 }
 
@@ -673,34 +707,34 @@ h3 {
   }
 
   .hero {
-    padding: 22px 0 42px;
+    padding: 20px 0 44px;
   }
 
   .hero-photo {
     min-height: 390px;
+    padding: 42px 34px;
   }
 
   .hero-photo::before {
-    inset: 16px;
+    inset: 0;
   }
 
   .hero-photo::after {
-    right: 18px;
-    bottom: 16px;
-    font-size: 20px;
+    inset: 14px;
   }
 
   .hero-photo img {
-    width: min(88%, 360px);
-    max-height: 340px;
+    width: min(76%, 310px);
+    max-height: 310px;
   }
 
   h1 {
-    font-size: clamp(52px, 17vw, 74px);
+    font-size: clamp(48px, 15vw, 70px);
   }
 
   .hero-text {
     font-size: 16px;
+    line-height: 1.62;
   }
 
   .hero-actions,
@@ -718,10 +752,11 @@ h3 {
 
   .trust-item {
     min-height: 96px;
+    padding: 20px;
   }
 
   .section {
-    padding: 58px 0;
+    padding: 56px 0;
   }
 
   .section-head {
@@ -746,7 +781,7 @@ h3 {
   }
 
   .filter {
-    flex: 1 1 auto;
+    flex: 1 1 calc(50% - 8px);
   }
 
   .product-top {
@@ -754,12 +789,45 @@ h3 {
     gap: 6px;
   }
 
+  .product-card p {
+    min-height: 0;
+  }
+
   .contact {
     display: block;
-    padding: 28px;
+    padding: 30px 24px;
   }
 
   .contact .btn {
     margin-top: 18px;
+  }
+}
+
+@media (max-width: 420px) {
+  .brand strong {
+    font-size: 21px;
+  }
+
+  .brand-mark {
+    width: 42px;
+    height: 42px;
+  }
+
+  .hero-photo {
+    min-height: 320px;
+    padding: 34px 26px;
+  }
+
+  .hero-photo img {
+    width: min(78%, 260px);
+    max-height: 260px;
+  }
+
+  .btn,
+  .filter {
+    min-height: 46px;
+    padding-right: 16px;
+    padding-left: 16px;
+    font-size: 13px;
   }
 }
